@@ -19,10 +19,10 @@ Find below a resume about with is being used in this project and how it's struct
 ## How to?
 In order to use, execute and publish that api you can:
 
-`npm i`  - Install all npm packages 
-`npm run dev`   - Execute the api in dev mode
-`npm run build`   - Create the dist package run server execution /dist
-`npm run prod`   - Execute the api in prod mode from /dist
+ - `npm i`  - Install all npm packages 
+ - `npm run dev`   - Execute the api in dev mode
+ - `npm run build`   - Create the dist package run server execution /dist
+ - `npm run prod`   - Execute the api in prod mode from /dist
 
 ## References
 If you are looking for more information about what's being used in this project I have some good links for you:
