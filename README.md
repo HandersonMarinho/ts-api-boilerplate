@@ -15,6 +15,7 @@ Find below a resume about with is being used in this project and how it's struct
 |`/Repository`| That folder contains all database mobules|
 |`/Abstraction`| Keeps all abstraction objects used to segregate responsabilities (SOLID), yes I like Interfaces |
 |`/Model`| Our api domain objects|
+|`/Common`| Helpera and common classes across the application |
 
 ## How to?
 In order to use, execute and publish that api you can:
@@ -29,4 +30,5 @@ If you are looking for more information about what's being used in this project 
 
  - [https://www.typescriptlang.org/](https://www.typescriptlang.org/)
  - [https://expressjs.com/](https://expressjs.com/)
+ - [https://github.com/microsoft/tsyringe](https://github.com/microsoft/tsyringe)
  - [https://scotch.io/bar-talk/s-o-l-i-d-the-first-five-principles-of-object-oriented-design](https://scotch.io/bar-talk/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
