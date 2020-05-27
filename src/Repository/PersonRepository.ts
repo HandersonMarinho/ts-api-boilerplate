@@ -1,6 +1,8 @@
 import { Person } from "../Model/Person";
 import { IPersonRepository } from "../Abstraction/IPersonRepository";
+import { injectable } from "tsyringe";
 
+@injectable()
 export class PersonRepository implements IPersonRepository {
 
     private list: Array<Person> = null;

@@ -1,21 +1,24 @@
+import "reflect-metadata";
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import { Routes } from "./Routes";
 import { PersonService } from "./Service/PersonService";
-import { PersonRepository } from "./Repository/PersonRepository";
+import container from "./Common/IocInstaller";
 
 class Startup {
 
-  //-----
-  private routes: Routes = new Routes(new PersonService(new PersonRepository()));
-  //-----
-
   public app: express.Application;
-  public appRoutes: Routes = this.routes;
+  private routes: Routes = null;
+  public appRoutes: Routes = null;
 
   constructor() {
     this.app = express();
     this.config();
+
+    let service = container.resolve(PersonService);
+    this.routes = new Routes(service);
+    this.appRoutes = this.routes;
+
     this.appRoutes.mount(this.app);
   }
 
