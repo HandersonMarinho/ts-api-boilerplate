@@ -1,16 +1,27 @@
+import { injectable, inject } from "tsyringe";
 import { Request, Response } from "express";
 import { IPersonService } from "./Abstraction/IPersonService";
 import { Person } from "./Model/Person";
+import { IRoutes } from "./Abstraction/IRoutes";
 
-export class Routes {
+@injectable()
+export class Routes implements IRoutes {
 
+  //
+  // Person service reference.
+  //
   private personService: IPersonService = null;
 
-  constructor(pService: IPersonService) {
-    this.personService = pService;
+  constructor(
+    @inject("PersonService") ps: IPersonService
+  ) {
+    this.personService = ps;
   }
 
-  mount(app): void {
+  //
+  // Sign all api routes.
+  //
+  mount(app: any): void {
 
     app.route("/user/all").get((req: Request, res: Response) => {
       res.json(this.personService.getAll());
@@ -22,10 +33,11 @@ export class Routes {
 
     app.route("/user").post((req: Request, res: Response) => {
       let { firstName, lastName, age } = req.body;
-      let person = new Person({firstName, lastName, age});
+      let person = new Person({ firstName, lastName, age });
       res.status(this.personService.create(person) ? 201 : 400);
       res.json({});
     });
 
   }
+
 }
