@@ -11,10 +11,7 @@ export class PersonService implements IPersonService {
   //
   private personRepository: IPersonRepository = null;
 
-  constructor
-    (
-      @inject("PersonRepository") pr: IPersonRepository
-    ) {
+  constructor(@inject("PersonRepository") pr: IPersonRepository) {
     this.personRepository = pr;
   }
 
@@ -22,7 +19,13 @@ export class PersonService implements IPersonService {
   // Find a person given it's id.
   //
   getById(id: number): Person {
-    return this.personRepository.getById(id);
+    if (!id) throw `mandatory field not informed: id`;
+
+    let data = this.personRepository.getById(id);
+
+    if(!data) throw `person id ${id} not found`;
+
+    return data;
   }
 
   //

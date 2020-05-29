@@ -1,3 +1,3 @@
 export interface IRoutes {
-    mount(app: any): void;
+    init(app: any): void;
 }

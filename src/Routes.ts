@@ -1,8 +1,6 @@
 import { injectable, inject } from "tsyringe";
-import { Request, Response } from "express";
-import { IPersonService } from "./Abstraction/IPersonService";
-import { Person } from "./Model/Person";
 import { IRoutes } from "./Abstraction/IRoutes";
+import { PersonController } from "./Controller/PersonController";
 
 @injectable()
 export class Routes implements IRoutes {
@@ -10,34 +8,19 @@ export class Routes implements IRoutes {
   //
   // Person service reference.
   //
-  private personService: IPersonService = null;
+  private personController: PersonController = null;
 
   constructor(
-    @inject("PersonService") ps: IPersonService
+    @inject("PersonController") personController: PersonController
   ) {
-    this.personService = ps;
+    this.personController = personController;
   }
 
   //
-  // Sign all api routes.
+  // Initializes all application routes.
   //
-  mount(app: any): void {
-
-    app.route("/user/all").get((req: Request, res: Response) => {
-      res.json(this.personService.getAll());
-    });
-
-    app.route("/user/:id").get((req: Request, res: Response) => {
-      res.json(this.personService.getById(parseInt(req.params.id)));
-    });
-
-    app.route("/user").post((req: Request, res: Response) => {
-      let { firstName, lastName, age } = req.body;
-      let person = new Person({ firstName, lastName, age });
-      res.status(this.personService.create(person) ? 201 : 400);
-      res.json({});
-    });
-
+  init(app: any): void {
+    this.personController.mountRoutes(app);
   }
 
 }
