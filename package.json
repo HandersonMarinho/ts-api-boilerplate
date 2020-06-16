@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpileOnly src/server.ts",
-    "prod": "ts-node dist/server.ts",
+    "prod": "ts-node dist/server.js",
     "build": "tsc -p ."
   },
   "dependencies": {
