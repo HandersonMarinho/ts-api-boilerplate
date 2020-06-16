@@ -15,7 +15,7 @@ export class PersonController {
         this.personService = ps;
     }
 
-    mountRoutes(app): void {
+    mount(app): void {
         app.route("/user/all").get((req: Request, res: Response) => {
             res.json(this.personService.getAll());
         });

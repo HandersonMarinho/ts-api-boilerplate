@@ -20,7 +20,7 @@ export class Routes implements IRoutes {
   // Initializes all application routes.
   //
   init(app: any): void {
-    this.personController.mountRoutes(app);
+    this.personController.mount(app);
   }
 
 }
