@@ -16,7 +16,7 @@ class Startup {
     // Express server configuration.
     this.app = express();
     this.app.use(bodyParser.json());
-    this.app.use(bodyParser.urlencoded({ extended: false }));
+    this.app.use(bodyParser.urlencoded({ extended: true }));
 
     // Init all routes for HTTP interaction.
     container.resolve(Routes).init(this.app);
