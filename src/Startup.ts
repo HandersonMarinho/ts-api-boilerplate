@@ -2,7 +2,7 @@ import "reflect-metadata";
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import { Routes } from "./Routes";
-import container from "./Common/IocInstaller";
+import container from "./Common/InjectionContainer";
 
 class Startup {
 
