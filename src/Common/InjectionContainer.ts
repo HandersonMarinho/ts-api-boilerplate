@@ -11,9 +11,9 @@ import { PersonController } from "../Controller/PersonController";
 //
 // Dependency injection installers.
 //
-container.register<IPersonRepository>("PersonRepository", PersonRepository);
-container.register<IPersonService>("PersonService", PersonService);
-container.register<IRoutes>("Routes", Routes);
+container.register<IPersonRepository>("IPersonRepository", PersonRepository);
+container.register<IPersonService>("IPersonService", PersonService);
+container.register<IRoutes>("IRoutes", Routes);
 container.register("PersonController", PersonController);
 
 export default container;

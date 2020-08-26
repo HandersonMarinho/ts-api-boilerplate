@@ -11,7 +11,7 @@ export class PersonService implements IPersonService {
   //
   private personRepository: IPersonRepository = null;
 
-  constructor(@inject("PersonRepository") pr: IPersonRepository) {
+  constructor(@inject("IPersonRepository") pr: IPersonRepository) {
     this.personRepository = pr;
   }
 

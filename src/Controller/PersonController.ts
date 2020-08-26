@@ -11,7 +11,7 @@ export class PersonController {
     //
     private personService: IPersonService = null;
 
-    constructor(@inject("PersonService") ps: IPersonService) {
+    constructor(@inject("IPersonService") ps: IPersonService) {
         this.personService = ps;
     }
 
